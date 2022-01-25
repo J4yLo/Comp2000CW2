@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="">
+
+    <TextView
+        android:id="@+id/HomePageTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="Welcome Back"
+        android:textColor="#5788A8"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+    <View
+        android:id="@+id/Divider"
+        android:layout_below="@+id/UserName"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:background="#cecdcf"/>
+
+    <TextView
+        android:id="@+id/UserName"
+        android:layout_below="@+id/HomePageTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:text="User"
+        android:textColor="#A885A0"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/ContentDescriber"
+        android:layout_below="@+id/Divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:text="Home Page"
+        android:textColor="#c19297"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+    <TextView
+
+        android:id="@+id/ViewProjects"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ContentDescriber"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="#b4d1d5"
+        android:drawableLeft="@drawable/ic_baseline_assessment_24"
+        android:drawablePadding="20dp"
+        android:padding="21dp"
+        android:text="View Projects"
+        android:textColor="#4a7d83"
+
+        android:textSize="20dp" />
+
+
+    <TextView
+
+        android:id="@+id/CreateProjects"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ViewProjects"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="#d4c4d2"
+        android:drawableLeft="@drawable/ic_baseline_add_box_24"
+        android:drawablePadding="20dp"
+        android:padding="21dp"
+        android:text="Create Project"
+        android:textColor="#6f516c"
+
+        android:textSize="20dp" />
+
+
+    <TextView
+
+        android:id="@+id/LogOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CreateProjects"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="#EB7878"
+        android:drawableLeft="@drawable/ic_baseline_exit_to_app_24"
+        android:drawablePadding="20dp"
+        android:padding="21dp"
+        android:text="Log Out"
+        android:textColor="#230505"
+
+        android:textSize="20dp" />
+
+
+</RelativeLayout>
