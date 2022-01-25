@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="">
+
+
+    <TextView
+        android:id="@+id/CreateProjectTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="Create A Project"
+        android:textColor="#90c174"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/BackBtn"
+        android:layout_alignParentLeft="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
+
+        />
+
+    <View
+        android:id="@+id/Divider"
+        android:layout_below="@+id/CreateProjectTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:background="#cecdcf"/>
+
+    <EditText
+
+        android:id="@+id/UserID"
+        android:layout_width="match_parent"
+        android:background="#d7dea8"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Divider"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Project Name"
+        android:padding="21dp"
+        android:textColor="#68712b"
+        android:textColorHint="#93a03d"
+        android:drawableLeft="@drawable/ic_baseline_add_24"
+        android:drawablePadding="20dp"
+
+
+
+        />
+
+
+    <EditText
+
+        android:id="@+id/ProjectCode"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/UserID"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="#acccd4"
+        android:drawablePadding="20dp"
+        android:hint="Project Code"
+        android:inputType="textMultiLine"
+        android:maxLines="50"
+        android:padding="21dp"
+        android:textColor="#35747b"
+        android:textColorHint="#3c858d"
+        android:gravity="top"
+
+
+        />
+
+    <TextView
+
+        android:id="@+id/AddImgText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ProjectCode"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="#d1ad8e"
+        android:drawablePadding="20dp"
+        android:padding="21dp"
+        android:text="Add Image"
+        android:textColor="#a67144"
+        android:drawableRight="@drawable/ic_baseline_image_24"
+
+        android:textSize="20dp" />
+
+
+
+    <TextView
+
+        android:id="@+id/Upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AddImgText"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="#d4c4d2"
+        android:drawableLeft="@drawable/ic_baseline_cloud_upload_24"
+        android:drawablePadding="20dp"
+        android:padding="21dp"
+        android:text="Upload Project Details"
+        android:textColor="#6f516c"
+
+        android:textSize="20dp" />
+
+
+</RelativeLayout>

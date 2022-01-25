@@ -11,6 +11,9 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/ProjectsList"/>
+        android:id="@+id/ProjectsList"
+        tools:listitem="@layout/projects_layout"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

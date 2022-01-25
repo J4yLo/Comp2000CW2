@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Comp2000CW2">
         <activity
+            android:name=".Create_A_Programme"
+            android:exported="false" />
+        <activity
             android:name=".View_Projects_Page"
             android:exported="false" />
         <activity
