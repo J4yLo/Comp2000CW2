@@ -25,14 +25,22 @@ public class MainActivity extends AppCompatActivity {
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (UserID.getText().toString().equals("admin") && Password.getText().toString().equals("admin"))
+                if (UserID.getText().toString() == null && Password.getText().toString() == null)
                 {
-                    Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "One or more fields are empty", Toast.LENGTH_SHORT).show();
                 }
                 else
-                {
-                    Toast.makeText(MainActivity.this, "Username Or Password Incorrect", Toast.LENGTH_SHORT).show();
+                    {
+                        if (UserID.getText().toString().equals("admin") && Password.getText().toString().equals("admin"))
+                        {
+                            Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(MainActivity.this, "Username Or Password Incorrect", Toast.LENGTH_SHORT).show();
+                        }
                 }
+
             }
         });
 
