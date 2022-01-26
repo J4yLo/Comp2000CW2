@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Comp2000CW2">
         <activity
+            android:name=".Remove_Program"
+            android:exported="false" />
+        <activity
+            android:name=".Update_Project"
+            android:exported="false" />
+        <activity
             android:name=".Create_A_Programme"
             android:exported="false" />
         <activity

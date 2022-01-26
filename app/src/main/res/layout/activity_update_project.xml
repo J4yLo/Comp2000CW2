@@ -8,15 +8,15 @@
 
 
     <TextView
-        android:id="@+id/CreateProjectTitle"
+        android:id="@+id/UpdateProjectTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:gravity="center"
-        android:text="Create A Project"
-        android:textColor="#90c174"
+        android:text="Update A Project"
+        android:textColor="#cdb7ed"
         android:textSize="35dp"
         android:textStyle="bold" />
 
@@ -35,7 +35,7 @@
 
     <View
         android:id="@+id/Divider"
-        android:layout_below="@+id/CreateProjectTitle"
+        android:layout_below="@+id/UpdateProjectTitle"
         android:layout_width="wrap_content"
         android:layout_height="2dp"
         android:layout_marginEnd="20dp"
@@ -45,15 +45,34 @@
 
     <EditText
 
+        android:id="@+id/ProjectCode"
+        android:layout_width="match_parent"
+        android:background="#d5aca6"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Divider"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Project Code"
+        android:padding="11dp"
+        android:textColor="#b16458"
+        android:textColorHint="#b16458"
+
+
+
+        />
+
+    <EditText
+
         android:id="@+id/UserID"
         android:layout_width="match_parent"
         android:background="#d7dea8"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Divider"
+        android:layout_below="@+id/ProjectCode"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="0dp"
         android:hint="Project Name"
         android:padding="21dp"
         android:textColor="#68712b"
@@ -75,7 +94,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="0dp"
         android:background="#acccd4"
         android:drawablePadding="20dp"
         android:hint="Project Description"
@@ -96,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ProjectDescription"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
         android:background="#d1ad8e"
@@ -124,7 +143,7 @@
         android:drawableLeft="@drawable/ic_baseline_cloud_upload_24"
         android:drawablePadding="20dp"
         android:padding="21dp"
-        android:text="Upload Project Details"
+        android:text="Update Project Details"
         android:textColor="#6f516c"
 
         android:textSize="20dp" />
