@@ -1,9 +1,12 @@
 package com.example.comp2000cw2;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,15 +16,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        // Full Screen Window
+        requestWindowFeature(getWindow().FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        //Render Page Content
         setContentView(R.layout.activity_main);
 
-
+        //Variables
         TextView UserID = findViewById(R.id.UserID);
         TextView Password = findViewById(R.id.Password);
-
-
         Button Login = (Button) findViewById(R.id.LoginBtn);
 
+        //Login Function
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         if (UserID.getText().toString().equals("admin") && Password.getText().toString().equals("admin"))
                         {
                             Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                            OpenHomePage();
                         }
                         else
                         {
@@ -46,6 +56,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    // Change Pages
+    public void OpenHomePage(){
+        Intent HomePage = new Intent(this, Home_Page.class);
+        startActivity(HomePage);
+
+    }
+
+
+
+
 
 
 

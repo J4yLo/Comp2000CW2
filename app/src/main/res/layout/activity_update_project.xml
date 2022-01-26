@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="">
+    android:background="#ffffff">
 
 
     <TextView
@@ -22,13 +22,13 @@
 
     <ImageButton
         android:id="@+id/BackBtn"
-        android:layout_alignParentLeft="true"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="#FFFFFF"
-        android:layout_marginEnd="20dp"
+        android:layout_alignParentLeft="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="#FFFFFF"
         android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
 
         />
@@ -47,17 +47,16 @@
 
         android:id="@+id/ProjectCode"
         android:layout_width="match_parent"
-        android:background="#d5aca6"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Divider"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
+        android:background="#d5aca6"
         android:hint="Project Code"
         android:padding="11dp"
         android:textColor="#b16458"
         android:textColorHint="#b16458"
-
 
 
         />
@@ -66,20 +65,19 @@
 
         android:id="@+id/UserID"
         android:layout_width="match_parent"
-        android:background="#d7dea8"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ProjectCode"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="0dp"
+        android:background="#d7dea8"
+        android:drawableLeft="@drawable/ic_baseline_add_24"
+        android:drawablePadding="20dp"
         android:hint="Project Name"
         android:padding="21dp"
         android:textColor="#68712b"
         android:textColorHint="#93a03d"
-        android:drawableLeft="@drawable/ic_baseline_add_24"
-        android:drawablePadding="20dp"
-
 
 
         />
@@ -92,21 +90,22 @@
         android:layout_height="300dp"
         android:layout_below="@+id/UserID"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="7dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="0dp"
         android:background="#acccd4"
         android:drawablePadding="20dp"
+        android:gravity="top"
         android:hint="Project Description"
         android:inputType="textMultiLine"
         android:maxLines="50"
         android:padding="21dp"
         android:textColor="#35747b"
         android:textColorHint="#3c858d"
-        android:gravity="top"
 
 
         />
+
 
     <TextView
 
@@ -115,19 +114,17 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ProjectDescription"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="7dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="0dp"
         android:background="#d1ad8e"
+        android:drawableRight="@drawable/ic_baseline_image_24"
         android:drawablePadding="20dp"
         android:padding="21dp"
         android:text="Add Image"
         android:textColor="#a67144"
-        android:drawableRight="@drawable/ic_baseline_image_24"
 
         android:textSize="20dp" />
-
-
 
     <TextView
 
@@ -136,7 +133,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/AddImgText"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
         android:background="#d4c4d2"
