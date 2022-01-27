@@ -6,15 +6,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
+
+import com.example.comp2000cw2.R;
 
 public class Update_Project extends AppCompatActivity {
+
+    private String UsersID;
+    private String UsersName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        UsersID = intent.getStringExtra("UserID");
+        UsersName = intent.getStringExtra("UserName");
+
 
         // Full Screen Window
         requestWindowFeature(getWindow().FEATURE_NO_TITLE);
@@ -46,6 +54,8 @@ public class Update_Project extends AppCompatActivity {
     // Change Pages
     public void OpenHomePage(){
         Intent HomePage = new Intent(this, Home_Page.class);
+        HomePage.putExtra("UserID", UsersID);
+        HomePage.putExtra("UserName", UsersName);
         startActivity(HomePage);
 
     }

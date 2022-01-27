@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
 
+import com.example.comp2000cw2.R;
+
 public class View_Projects_Page extends AppCompatActivity {
 
     @Override

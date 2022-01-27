@@ -1,19 +1,37 @@
 package com.example.comp2000cw2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.comp2000cw2.MainActivity;
+import com.example.comp2000cw2.Model.IUser;
+import com.example.comp2000cw2.Model.User;
+import com.example.comp2000cw2.Remove_Program;
+import com.example.comp2000cw2.Update_Project;
+import com.example.comp2000cw2.View.ILoginView;
+import com.example.comp2000cw2.View_Projects_Page;
 
 public class Home_Page extends AppCompatActivity {
+
+    private String UsersID;
+    private String UsersName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        UsersID = intent.getStringExtra("UserID");
+        UsersName = intent.getStringExtra("UserName");
+
 
 
         // Full Screen Window
@@ -29,6 +47,8 @@ public class Home_Page extends AppCompatActivity {
         TextView UpdateProjects = findViewById(R.id.UpdateProjects);
         TextView DeleteProject = findViewById(R.id.DeleteProject);
         TextView LogOut = findViewById(R.id.LogOut);
+        TextView Username = findViewById(R.id.UserName);
+
 
 
 
@@ -69,6 +89,11 @@ public class Home_Page extends AppCompatActivity {
             }
         });
 
+
+
+        //Dynamic elements of UI
+        Username.setText(UsersName);
+
     }
 
 
@@ -80,11 +105,15 @@ public class Home_Page extends AppCompatActivity {
     }
     public void OpenCreateProjects(){
         Intent CreateProjects = new Intent(this, Create_A_Programme.class);
+        CreateProjects.putExtra("UserID", UsersID);
+        CreateProjects.putExtra("UserName", UsersName);
         startActivity(CreateProjects);
 
     }
     public void OpenUpdateProjects(){
         Intent UpdateProjects = new Intent(this, Update_Project.class);
+        UpdateProjects.putExtra("UserID", UsersID);
+        UpdateProjects.putExtra("UserName", UsersName);
         startActivity(UpdateProjects);
 
     }
@@ -95,7 +124,12 @@ public class Home_Page extends AppCompatActivity {
     }
     public void OpenDeleteProject(){
         Intent DeleteProject = new Intent(this, Remove_Program.class);
+        DeleteProject.putExtra("UserID", UsersID);
+        DeleteProject.putExtra("UserName", UsersName);
         startActivity(DeleteProject);
 
     }
+
+
+
 }

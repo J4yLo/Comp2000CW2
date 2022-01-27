@@ -1,4 +1,4 @@
-package com.example.comp2000cw2;
+package com.example.comp2000cw2.Model;
 
 public class Projects {
     String ProjectName, ProjectUsers, ProjectDescription;

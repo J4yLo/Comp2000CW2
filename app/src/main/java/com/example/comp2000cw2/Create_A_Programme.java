@@ -8,11 +8,21 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 
+import com.example.comp2000cw2.Home_Page;
+import com.example.comp2000cw2.R;
+
 public class Create_A_Programme extends AppCompatActivity {
+
+    private String UsersID;
+    private String UsersName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        UsersID = intent.getStringExtra("UserID");
+        UsersName = intent.getStringExtra("UserName");
 
         // Full Screen Window
         requestWindowFeature(getWindow().FEATURE_NO_TITLE);
@@ -46,6 +56,8 @@ public class Create_A_Programme extends AppCompatActivity {
     // Change Pages
     public void OpenHomePage(){
         Intent HomePage = new Intent(this, Home_Page.class);
+        HomePage.putExtra("UserID", UsersID);
+        HomePage.putExtra("UserName", UsersName);
         startActivity(HomePage);
 
     }
