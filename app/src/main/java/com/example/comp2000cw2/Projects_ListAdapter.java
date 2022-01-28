@@ -41,6 +41,9 @@ public class Projects_ListAdapter extends ArrayAdapter<Projects> {
         TextView projCode = convertView.findViewById(R.id.LProjectCode);
         TextView projDate = convertView.findViewById(R.id.ProjectUploadDate);
 
+
+
+
         projImg.setImageResource(projects.imgID);
         projTitle.setText(projects.projectName);
         projdesc.setText(projects.projectDescription);
