@@ -44,13 +44,6 @@ public class Remove_Program extends AppCompatActivity {
     }
 
 
-
-
-
-
-
-
-
     // Change Pages
     public void OpenHomePage(){
         Intent HomePage = new Intent(this, Home_Page.class);

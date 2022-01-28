@@ -119,6 +119,8 @@ public class Home_Page extends AppCompatActivity {
     }
     public void OpenViewProjects(){
         Intent ViewProjects = new Intent(this, View_Projects_Page.class);
+        ViewProjects.putExtra("UserID", UsersID);
+        ViewProjects.putExtra("UserName", UsersName);
         startActivity(ViewProjects);
 
     }
