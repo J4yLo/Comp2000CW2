@@ -47,12 +47,12 @@
 
         android:id="@+id/ProjectCode"
         android:layout_width="match_parent"
-        android:background="#d5aca6"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Divider"
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
+        android:background="#d5aca6"
         android:hint="Project Code"
         android:padding="11dp"
         android:textColor="#b16458"
@@ -81,11 +81,9 @@
         android:textSize="16dp" />
 
 
-
-
     <TextView
 
-        android:id="@+id/Upload"
+        android:id="@+id/Delete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/RemovePrompt"

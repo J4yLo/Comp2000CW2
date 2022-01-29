@@ -63,7 +63,7 @@
 
     <EditText
 
-        android:id="@+id/UserID"
+        android:id="@+id/ProjectName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ProjectCode"
@@ -88,7 +88,7 @@
         android:id="@+id/ProjectDescription"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_below="@+id/UserID"
+        android:layout_below="@+id/ProjectName"
         android:layout_marginStart="20dp"
         android:layout_marginTop="7dp"
         android:layout_marginEnd="20dp"

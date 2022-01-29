@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.comp2000cw2">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -11,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Comp2000CW2"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".projects_page_template"
+            android:exported="false" />
         <activity
             android:name=".Remove_Program"
             android:exported="false" />

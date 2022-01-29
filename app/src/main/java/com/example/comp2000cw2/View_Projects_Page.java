@@ -62,11 +62,7 @@ public class View_Projects_Page extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
 
         String url = "http://web.socem.plymouth.ac.uk/COMP2000/api/students";
-
-
-
          ArrayList<Projects> projectsArrayList = new ArrayList<>();
-
 
 
         //Api
@@ -76,23 +72,15 @@ public class View_Projects_Page extends AppCompatActivity {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-
-
                             Log.d("ProjArray At Start", "Response: " + projectsArrayList.toString());
 
                         // Interpret Values from get request
 
                         for (int i = 0; i < response.length(); i ++)
                         {
-
-
                             try
                             {
                                 JSONObject jsonObject = response.getJSONObject(i);
-
-
-
-
                                     String UserID = jsonObject.get("studentID").toString();
                                     String projName =  jsonObject.get("title").toString();
                                     String projUsers = jsonObject.get("first_Name").toString() + " " + jsonObject.get("second_Name").toString();
@@ -129,35 +117,25 @@ public class View_Projects_Page extends AppCompatActivity {
 
                                     // Create an item for the list
 
-
                                     //Toast.makeText(View_Projects_Page.this, UserID, Toast.LENGTH_SHORT).show();
                                     Projects proj = new Projects(projName,projUsers,projDesc,projCode,projDate,imgID);
                                     projectsArrayList.add(proj);
-
                             }
                             catch (Exception e)
                             {
                                 e.printStackTrace();
                                 Log.d("ProjArray At Error", "Response: Error");
                                 Toast.makeText(View_Projects_Page.this, "Error Converting Data", Toast.LENGTH_SHORT).show();
-
                             }
-
                             Log.d("ProjArray At End", "Response: " + projectsArrayList.get(i).projectName.toString());
-
-
                         }
-
                         ListAdapter listAdapter = new Projects_ListAdapter(View_Projects_Page.this, projectsArrayList);
                         binding.ProjectsList.setAdapter(listAdapter);
                         binding.ProjectsList.setClickable(true);
-
                         // Change Pages on Item Click and passes through values
                         binding.ProjectsList.setOnItemClickListener((parent, view, position, id) ->
                         {
-
                             Intent ProjectDetails = new Intent(View_Projects_Page.this,Home_Page.class);
-
                             //Project Details
                             ProjectDetails.putExtra("Name",projectsArrayList.get(position).projectName.toString());
                             ProjectDetails.putExtra("Users",projectsArrayList.get(position).projectUsers.toString());
@@ -166,79 +144,19 @@ public class View_Projects_Page extends AppCompatActivity {
                             ProjectDetails.putExtra("Date",projectsArrayList.get(position).projectDate.toString());
                             ProjectDetails.putExtra("imgID",projectsArrayList.get(position).imgID);
 
-
-
                             //User Details
                             ProjectDetails.putExtra("UserID", UsersID);
                             ProjectDetails.putExtra("UserName", UsersName);
-
-
-
-
                             startActivity(ProjectDetails);
-
                         });
-
-
-
-
                     }
-
-
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.d("Error", "Response: " + error.toString());
-
                 }
-
-
-
         });
         requestQueue.add(jsonArrayRequest);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-        String[] projNameLst = new String[ProjectsList.length()];
-        int[] imgIDLst = new int[ProjectsList.length()];
-        String[] projUsersLst = new String[ProjectsList.length()];
-        String[] projDescLst = new String[ProjectsList.length()];
-        String[] projDateLst = new String[ProjectsList.length()];
-        String [] projCodeLst = new String[ProjectsList.length()];
-
-     */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
-
 }
