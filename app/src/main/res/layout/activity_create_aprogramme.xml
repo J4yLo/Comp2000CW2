@@ -91,31 +91,30 @@
 
     <TextView
 
-        android:id="@+id/AddImgText"
+        android:id="@+id/AddImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ProjectDescription"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        android:background="#d1ad8e"
-        android:drawableRight="@drawable/ic_baseline_image_24"
-        android:drawablePadding="20dp"
-        android:padding="21dp"
-        android:text="Add Image"
-        android:textColor="#a67144"
-
-        android:textSize="20dp" />
+        android:layout_marginBottom="0dp"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:maxLines="2"
+        android:padding="10dp"
+        android:text="*To add image please Navigate to the upload page after creation of the project*"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
 
     <TextView
 
         android:id="@+id/Upload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/AddImgText"
+        android:layout_below="@+id/AddImage"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
         android:background="#d4c4d2"

@@ -51,6 +51,17 @@ public class Home_Page extends AppCompatActivity {
 
 
 
+        // Get First Name
+        String FirstName;
+        try {
+            int indx = UsersName.lastIndexOf(' ');
+            FirstName = UsersName.substring(0, indx);
+        }catch(Exception e){
+            FirstName = UsersName;
+        }
+
+
+
 
 
         // Methods To Change Page
@@ -92,7 +103,7 @@ public class Home_Page extends AppCompatActivity {
 
 
         //Dynamic elements of UI
-        Username.setText(UsersName);
+        Username.setText(FirstName);
 
     }
 

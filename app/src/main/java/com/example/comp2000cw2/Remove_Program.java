@@ -1,9 +1,15 @@
 package com.example.comp2000cw2;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -29,7 +35,9 @@ public class Remove_Program extends AppCompatActivity {
     private String UsersID;
     private String UsersName;
     private RequestQueue requestQueue;
+    private String Project;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +54,12 @@ public class Remove_Program extends AppCompatActivity {
 
         //Render Page Content
         setContentView(R.layout.activity_remove_program);
+
+        //Notifications Channel
+        NotificationChannel Nchannel = new NotificationChannel("NotificationChannel", "Notifications", NotificationManager.IMPORTANCE_DEFAULT);
+        Nchannel.setDescription("Notifications");
+        NotificationManager notifyManager = getSystemService(NotificationManager.class);
+        notifyManager.createNotificationChannel(Nchannel);
 
         //Variables
         ImageButton Back = findViewById(R.id.BackBtn);
@@ -67,7 +81,8 @@ public class Remove_Program extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String url = "http://web.socem.plymouth.ac.uk/COMP2000/api/students/" + UsersID;
+                String url = "http://web.socem.plymouth.ac.uk/COMP2000/api/students/" + ProjID.getText();
+                Project = ProjID.getText().toString();
                 StringRequest RemoveProgramme = new StringRequest(Request.Method.DELETE, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -80,14 +95,10 @@ public class Remove_Program extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(Remove_Program.this, "Failure to remove Programme", Toast.LENGTH_SHORT).show();
                     }
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> params = new HashMap<>();
-                        params.put("projectID",ProjID.getText().toString() );
-                        return super.getParams();
-                    }
-                };
+                });
+
+                projectnotify();
+
                 requestQueue = Volley.newRequestQueue(Remove_Program.this);
                 requestQueue.add(RemoveProgramme);
 
@@ -100,6 +111,19 @@ public class Remove_Program extends AppCompatActivity {
         });
     }
 
+
+    //notification
+    public void projectnotify(){
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "NotificationChannel")
+                .setSmallIcon(R.drawable.ic_baseline_add_box_24)
+                .setContentTitle("Remove Project")
+                .setContentText("Successful Deletion of " + Project)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        NotificationManagerCompat NM = NotificationManagerCompat.from(getApplicationContext());
+        NM.notify(1, builder.build());
+
+    }
 
     // Change Pages
     public void OpenHomePage(){

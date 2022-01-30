@@ -121,10 +121,12 @@
         android:drawableRight="@drawable/ic_baseline_image_24"
         android:drawablePadding="20dp"
         android:padding="21dp"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:text="Add Image"
         android:textColor="#a67144"
 
-        android:textSize="20dp" />
+        android:textSize="15dp" />
 
     <TextView
 

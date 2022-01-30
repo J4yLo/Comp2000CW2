@@ -1,6 +1,7 @@
 package com.example.comp2000cw2;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,15 +9,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.example.comp2000cw2.Projects;
 import com.example.comp2000cw2.R;
 
 import java.util.ArrayList;
 
 public class Projects_ListAdapter extends ArrayAdapter<Projects> {
+
 
     public Projects_ListAdapter(Context context, ArrayList<Projects> projectsArrayList)
     {
@@ -44,7 +48,7 @@ public class Projects_ListAdapter extends ArrayAdapter<Projects> {
 
 
 
-        projImg.setImageResource(projects.imgID);
+
         projTitle.setText(projects.projectName);
         projdesc.setText(projects.projectDescription);
         projCode.setText(projects.projectCode);

@@ -80,46 +80,61 @@ public class View_Projects_Page extends AppCompatActivity {
                         {
                             try
                             {
+
                                 JSONObject jsonObject = response.getJSONObject(i);
                                     String UserID = jsonObject.get("studentID").toString();
                                     String projName =  jsonObject.get("title").toString();
                                     String projUsers = jsonObject.get("first_Name").toString() + " " + jsonObject.get("second_Name").toString();
                                     String projDesc =  jsonObject.get("description").toString();
                                     String projCode =  jsonObject.get("projectID").toString();;
-                                    String projDate = jsonObject.get("year").toString();;
-                                    int imgID = R.drawable.ic_baseline_assessment_24;
+                                    String projDate = jsonObject.get("year").toString();
+                                    String Photo = jsonObject.get("photo").toString();
+                                    String Poster = jsonObject.get("projectID").toString();
+                                    String Thumbnail = jsonObject.get("thumbnailURL").toString();
 
 
-                                    if (projName == null)
+                                    if (UserID.isEmpty())
+                                    {
+                                        UserID = "none assigned";
+                                    }
+                                    if (projName.isEmpty())
                                     {
                                         projName = "none assigned";
                                     }
-                                    if (projUsers == null)
+                                    if (projUsers.isEmpty())
                                     {
                                         projUsers = "none assigned";
                                     }
-                                    if (projDesc == null)
+                                    if (projDesc.isEmpty())
                                     {
                                         projDesc = "none assigned";
                                     }
-                                    if (projCode == null)
+                                    if (projCode.isEmpty())
                                     {
                                         projCode = "none assigned";
                                     }
-                                    if (projDate == null)
+                                    if (projDate.isEmpty())
                                     {
                                         projDate = "none assigned";
                                     }
-                                    if (imgID == 0)
-                                    {
-                                        imgID = R.drawable.ic_baseline_event_available_24;
-                                    }
 
-                                    // Create an item for the list
+                                    int UID = Integer.parseInt(UserID);
+                                    int UsrID = Integer.parseInt(UsersID);
 
-                                    //Toast.makeText(View_Projects_Page.this, UserID, Toast.LENGTH_SHORT).show();
-                                    Projects proj = new Projects(projName,projUsers,projDesc,projCode,projDate,imgID);
-                                    projectsArrayList.add(proj);
+
+                                    // Create an item for the Projects list
+                                    Projects proj = new Projects(UserID, projName,projUsers,projDesc,projCode,projDate,Photo,Poster,Thumbnail);
+                                        //Toast.makeText(View_Projects_Page.this, UserID, Toast.LENGTH_SHORT).show();
+                                        projectsArrayList.add(proj);
+
+
+
+
+
+
+
+
+
                             }
                             catch (Exception e)
                             {
@@ -129,32 +144,47 @@ public class View_Projects_Page extends AppCompatActivity {
                             }
                             Log.d("ProjArray At End", "Response: " + projectsArrayList.get(i).projectName.toString());
                         }
-                        ListAdapter listAdapter = new Projects_ListAdapter(View_Projects_Page.this, projectsArrayList);
-                        binding.ProjectsList.setAdapter(listAdapter);
-                        binding.ProjectsList.setClickable(true);
-                        // Change Pages on Item Click and passes through values
-                        binding.ProjectsList.setOnItemClickListener((parent, view, position, id) ->
-                        {
-                            Intent ProjectDetails = new Intent(View_Projects_Page.this,Home_Page.class);
-                            //Project Details
-                            ProjectDetails.putExtra("Name",projectsArrayList.get(position).projectName.toString());
-                            ProjectDetails.putExtra("Users",projectsArrayList.get(position).projectUsers.toString());
-                            ProjectDetails.putExtra("Description",projectsArrayList.get(position).projectDescription.toString());
-                            ProjectDetails.putExtra("Code",projectsArrayList.get(position).projectCode.toString());
-                            ProjectDetails.putExtra("Date",projectsArrayList.get(position).projectDate.toString());
-                            ProjectDetails.putExtra("imgID",projectsArrayList.get(position).imgID);
 
-                            //User Details
-                            ProjectDetails.putExtra("UserID", UsersID);
-                            ProjectDetails.putExtra("UserName", UsersName);
-                            startActivity(ProjectDetails);
-                        });
+                        try{
+                            ListAdapter listAdapter = new Projects_ListAdapter(View_Projects_Page.this, projectsArrayList);
+                            binding.ProjectsList.setAdapter(listAdapter);
+                            binding.ProjectsList.setClickable(true);
+                            // Change Pages on Item Click and passes through values
+
+                            if (projectsArrayList == null){
+                                Toast.makeText(View_Projects_Page.this, "No Content To View", Toast.LENGTH_SHORT).show();
+                            }
+                            binding.ProjectsList.setOnItemClickListener((parent, view, position, id) ->
+                            {
+                                Intent ProjectDetails = new Intent(View_Projects_Page.this,projects_page_template.class);
+                                //Project Details
+                                ProjectDetails.putExtra("ProjStudentID",projectsArrayList.get(position).projUserID);
+                                ProjectDetails.putExtra("Name",projectsArrayList.get(position).projectName.toString());
+                                ProjectDetails.putExtra("Users",projectsArrayList.get(position).projectUsers.toString());
+                                ProjectDetails.putExtra("Description",projectsArrayList.get(position).projectDescription.toString());
+                                ProjectDetails.putExtra("Code",projectsArrayList.get(position).projectCode.toString());
+                                ProjectDetails.putExtra("Date",projectsArrayList.get(position).projectDate);
+                                ProjectDetails.putExtra("Photo",projectsArrayList.get(position).imgBytes);
+                                ProjectDetails.putExtra("Poster",projectsArrayList.get(position).poster);
+                                ProjectDetails.putExtra("Thumbnail",projectsArrayList.get(position).thumbnail);
+
+                                //User Details
+                                ProjectDetails.putExtra("UserID", UsersID);
+                                ProjectDetails.putExtra("UserName", UsersName);
+                                startActivity(ProjectDetails);
+                            });
+                        }catch (Exception e)
+                        {
+                            Toast.makeText(View_Projects_Page.this, "No Content To View", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.d("Error", "Response: " + error.toString());
+                        Toast.makeText(View_Projects_Page.this, "Error Contacting Server", Toast.LENGTH_SHORT).show();
                 }
         });
         requestQueue.add(jsonArrayRequest);
