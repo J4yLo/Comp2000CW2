@@ -123,9 +123,13 @@ public class View_Projects_Page extends AppCompatActivity {
 
 
                                     // Create an item for the Projects list
+                                if (UsersID.equals(UserID))
+                                {
                                     Projects proj = new Projects(UserID, projName,projUsers,projDesc,projCode,projDate,Photo,Poster,Thumbnail);
-                                        //Toast.makeText(View_Projects_Page.this, UserID, Toast.LENGTH_SHORT).show();
-                                        projectsArrayList.add(proj);
+                                    //Toast.makeText(View_Projects_Page.this, UserID, Toast.LENGTH_SHORT).show();
+                                    projectsArrayList.add(proj);
+                                }
+
 
 
 
@@ -142,7 +146,7 @@ public class View_Projects_Page extends AppCompatActivity {
                                 Log.d("ProjArray At Error", "Response: Error");
                                 Toast.makeText(View_Projects_Page.this, "Error Converting Data", Toast.LENGTH_SHORT).show();
                             }
-                            Log.d("ProjArray At End", "Response: " + projectsArrayList.get(i).projectName.toString());
+                            //Log.d("ProjArray At End", "Response: " + projectsArrayList.get(i).projectName.toString());
                         }
 
                         try{
