@@ -155,8 +155,8 @@ public class View_Projects_Page extends AppCompatActivity {
                             binding.ProjectsList.setClickable(true);
                             // Change Pages on Item Click and passes through values
 
-                            if (projectsArrayList == null){
-                                Toast.makeText(View_Projects_Page.this, "No Content To View", Toast.LENGTH_SHORT).show();
+                            if (projectsArrayList.isEmpty()){
+                                Toast.makeText(View_Projects_Page.this, "No Content To View, Create A Project And return here", Toast.LENGTH_LONG).show();
                             }
                             binding.ProjectsList.setOnItemClickListener((parent, view, position, id) ->
                             {
