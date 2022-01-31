@@ -137,6 +137,7 @@ public class Update_Project extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Toast.makeText(Update_Project.this, "Project Updated", Toast.LENGTH_SHORT).show();
+                        projectnotify();
                     }
                 }, new Response.ErrorListener(){
                     @Override
@@ -146,7 +147,7 @@ public class Update_Project extends AppCompatActivity {
                 });
 
 
-                projectnotify();
+          
                 requestQueue = Volley.newRequestQueue(Update_Project.this);
                 requestQueue.add(UpdateProgramme);
             }
@@ -212,6 +213,7 @@ public class Update_Project extends AppCompatActivity {
                                         public void onResponse(Call call, retrofit2.Response response) {
                                             Toast.makeText(Update_Project.this, "Success Programme Uploaded", Toast.LENGTH_SHORT).show();
                                             IMGNotify();
+                                            
                                         }
 
                                         @Override
