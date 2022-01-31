@@ -157,6 +157,7 @@ public class Create_A_Programme extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
 
                         Toast.makeText(Create_A_Programme.this, "Success Programme Uploaded", Toast.LENGTH_SHORT).show();
+                        projectnotify();
 
 
                     }
@@ -167,7 +168,7 @@ public class Create_A_Programme extends AppCompatActivity {
                     }
                 });
 
-                projectnotify();
+                
                 requestQueue = Volley.newRequestQueue(Create_A_Programme.this);
                 requestQueue.add(newProgramme);
             }
