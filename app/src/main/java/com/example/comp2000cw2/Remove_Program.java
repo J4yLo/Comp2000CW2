@@ -88,6 +88,7 @@ public class Remove_Program extends AppCompatActivity {
                     public void onResponse(String response) {
 
                         Toast.makeText(Remove_Program.this, "Success", Toast.LENGTH_SHORT).show();
+                        projectnotify();
 
                     }
                 }, new Response.ErrorListener(){
@@ -97,7 +98,7 @@ public class Remove_Program extends AppCompatActivity {
                     }
                 });
 
-                projectnotify();
+                
 
                 requestQueue = Volley.newRequestQueue(Remove_Program.this);
                 requestQueue.add(RemoveProgramme);
